@@ -12,11 +12,17 @@
             </div>
           </div>
         </div>
-        <div class="hidden max-w-[650px] flex-1 lg:block 2xl:max-w-[900px]">
-          <div class="grid h-full grid-flow-col gap-6 overflow-auto">
-            <div v-for="i in 4" class="w-34 h-full min-w-36">
-              <div class="flex h-full w-full items-center justify-center">
-                <div class="m-3 text-lg font-semibold text-white">카테고리 {{ i }}</div>
+        <div v-if="topCate" class="flex">
+          <div class="hidden max-w-[650px] flex-1 lg:block 2xl:max-w-[900px]">
+            <div class="grid h-full grid-flow-col gap-6 overflow-auto">
+              <div
+                v-for="tCate in topCate.slice(0, 4)"
+                :key="tCate.categoryId"
+                class="w-34 h-full min-w-36"
+              >
+                <div class="flex h-full w-full items-center justify-center hover:cursor-pointer">
+                  <div class="m-3 text-lg font-semibold text-white">{{ tCate.categoryName }}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -24,9 +30,12 @@
         <div class="min-w-32 flex-1">
           <div class="flex h-full items-center justify-end">
             <div class="inline-flex items-center">
-              <Button class="rounded-full border border-white bg-white px-8 py-3 text-blue-900"
-                >로그인</Button
+              <button
+                class="rounded-full border border-white bg-white px-8 py-3 text-blue-900"
+                @click="toLogin"
               >
+                로그인
+              </button>
             </div>
           </div>
         </div>
@@ -35,4 +44,22 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import router from '@/router'
+import { useCategoryStore } from '@/stores/category'
+
+const cateStore = useCategoryStore()
+const topCate = ref(null)
+
+const toLogin = () => router.push('/login')
+
+watch(
+  () => cateStore.boards,
+  (newVal) => {
+    topCate.value = newVal.sort((a, b) => {
+      return b.posts.length - a.posts.length
+    })
+    console.log(topCate.value)
+  },
+)
+</script>

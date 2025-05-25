@@ -6,7 +6,7 @@
 
       <div class="mt-5 pl-4">
         <div v-for="post in posts.slice(0, 10)" :key="post.boardId" class="mb-2">
-          <div class="flex max-w-full text-lg">
+          <div class="flex max-w-full text-lg hover:cursor-pointer">
             <div class="inline-flex w-full space-x-3 text-lg font-normal">
               <div class="overflow-hidden truncate whitespace-nowrap">
                 {{ post.title }}

@@ -71,6 +71,9 @@ onMounted(async () => {
     //   console.log(obj.posts)
     // })
     receivedAll.value = filteredSum
+
+    useCategoryStore().setBoard(filteredSum)
+    console.log('🍍 카테고리별 Board 전역 설정 완료')
   } catch (e) {
     console.log('게시글 데이터 받기 실패! : ' + e)
   } finally {
