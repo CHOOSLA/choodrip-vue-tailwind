@@ -56,4 +56,4 @@ yarn install
 
 ```js
 import './assets/[your file name].css'
-```
+```# choodrip-vue-tailwind
