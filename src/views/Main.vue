@@ -1,12 +1,6 @@
 <template>
-  <div class="mx-auto min-h-screen max-w-screen-xl bg-white">
-    <div class="w-full py-5">
-      <div class="flex w-full flex-wrap">
-        <div v-for="received in receivedAll" :key="received.categoryId" class="pr-10 md:w-1/2">
-          <MainCard :category="received.categoryName" :posts="received.posts" />
-        </div>
-      </div>
-    </div>
+  <div v-for="received in receivedAll" :key="received.categoryId" class="pr-10 md:w-1/2">
+    <MainCard :category="received.categoryName" :posts="received.posts" />
   </div>
 </template>
 

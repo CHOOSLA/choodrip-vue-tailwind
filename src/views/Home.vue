@@ -4,7 +4,13 @@
       <Header />
     </header>
     <main class="w-full bg-slate-300">
-      <router-view />
+      <div class="mx-auto min-h-screen max-w-screen-xl bg-white">
+        <div class="w-full py-5">
+          <div class="flex w-full flex-wrap">
+            <router-view />
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="h-32 bg-blue-900"></footer>
   </div>
