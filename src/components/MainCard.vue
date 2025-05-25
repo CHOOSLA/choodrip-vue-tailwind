@@ -1,14 +1,14 @@
 <template>
-  <div class="max-w-full mb-16">
+  <div class="mb-16 max-w-full">
     <div>
-      <label class="text-blue-600 text-4xl px-4"> {{ category }} </label>
-      <div class="h-[3px] w-full rounded-lg bg-slate-400 mt-4 ml-3"></div>
+      <label class="px-4 text-4xl text-blue-600"> {{ category }} </label>
+      <div class="ml-3 mt-4 h-[3px] w-full rounded-lg bg-slate-400"></div>
 
       <div class="mt-5 pl-4">
         <div v-for="post in posts.slice(0, 10)" :key="post.boardId" class="mb-2">
           <div class="flex max-w-full text-lg">
-            <div class="inline-flex w-full text-lg font-normal space-x-3">
-              <div class="truncate overflow-hidden whitespace-nowrap">
+            <div class="inline-flex w-full space-x-3 text-lg font-normal">
+              <div class="overflow-hidden truncate whitespace-nowrap">
                 {{ post.title }}
               </div>
               <div class="inline-flex">
@@ -17,11 +17,11 @@
                     <IconMdiImage />
                   </div>
                 </div>
-                <div class="text-blue-600 shrink-0 whitespace-nowrap">[2]</div>
+                <div class="shrink-0 whitespace-nowrap text-blue-600">[2]</div>
               </div>
             </div>
           </div>
-          <div class="h-[2px] w-full border border-dashed border-slate-200 mt-1"></div>
+          <div class="mt-1 h-[2px] w-full border border-dashed border-slate-200"></div>
         </div>
       </div>
     </div>

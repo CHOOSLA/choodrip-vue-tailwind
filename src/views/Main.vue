@@ -1,8 +1,8 @@
 <template>
-  <div class="max-w-screen-xl min-h-screen mx-auto bg-white">
+  <div class="mx-auto min-h-screen max-w-screen-xl bg-white">
     <div class="w-full py-5">
-      <div class="w-full flex flex-wrap">
-        <div v-for="received in receivedAll" :key="received.categoryId" class="md:w-1/2 pr-10">
+      <div class="flex w-full flex-wrap">
+        <div v-for="received in receivedAll" :key="received.categoryId" class="pr-10 md:w-1/2">
           <MainCard :category="received.categoryName" :posts="received.posts" />
         </div>
       </div>
@@ -33,7 +33,7 @@ onMounted(async () => {
     console.log(tmpCates)
 
     // 카테고리 전역 설정
-    useCategoryStore().setCate(tmpCates.data)
+    useCategoryStore().setCate(tmpCates)
     console.log('🍍 Category 전역 설정 완료')
   } catch (e) {
     console.log('카테고리 데이터 받기 실패! : ' + e)

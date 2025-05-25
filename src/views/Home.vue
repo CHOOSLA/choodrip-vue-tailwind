@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-auto max-w-full overflow-x-clip relatives">
+  <div class="relatives max-w-full overflow-auto overflow-x-clip">
     <header class="h-16">
       <Header />
     </header>
